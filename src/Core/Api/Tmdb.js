@@ -2,9 +2,9 @@ const API_BASE = 'https://api.themoviedb.org/3';
 const API_KEY = '25a3ed7f12e9e4a659399c529b766b48';
 
 const basicFetch = async endpoint => {
-    const req = await fetch( `${ API_BASE }${ endpoint }` );
-    const json = await req.json();
-    return json;
+    const req = await fetch( `${ API_BASE }${ endpoint }` )
+    const json = await req.json()
+    return json
 };
 
 export default {
@@ -51,5 +51,24 @@ export default {
                 items: await basicFetch(`/discover/movie?with_genres=99&language=pt-BR&api_key=${API_KEY}`)
             },
         ]
+    },
+    getMovieInfo: async (movieID, type) => {
+        let info = {}
+
+        if(movieID) {
+            switch (type) {
+                case 'movie':
+                    info = await basicFetch(`/movie/${movieID}?language=pt-BR&api_key=${API_KEY}`)
+                break
+                case 'tv':
+                    info = await basicFetch(`/tv/${movieID}?language=pt-BR&api_key=${API_KEY}`)
+                break
+                default:
+                    info = null
+                break
+            }
+        }
+
+        return info
     }
 }
