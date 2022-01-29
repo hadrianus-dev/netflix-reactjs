@@ -13,4 +13,4 @@ se você entende de Javascript, já é suficiente para lidar com todas abordagen
 Os dados utilizados neste projecto são verdadeiros e possuem uma fonte externa: TMDB. Consumimos uma API para obter uma listagens com dados verdadeiros.
 
 ## API
-[link:](https://themoviedb.org)
+[themoviedb.org:](https://themoviedb.org)
